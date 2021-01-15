@@ -1,0 +1,53 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/redeemcode.controller.js" th:src="@{/app/redeemcode.controller.js}"></script>
+    <style>
+        .btn-primary {
+            margin: 0.2em;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #2b2584">
+        <div class="d-md-flex d-block flex-row mx-md-auto mx-0" >
+            <a class="navbar-brand" style="font-family: Verdana; color: white" href="/">Codes Generator</a>
+        </div>
+    </nav>
+</header>
+<div style="display: flex; justify-content: center">
+    <div class="card" style="width: 18rem; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Codes Table</h5>
+            <p class="card-text">See the codes created so far here! You can check out how many of them are winning or how many of them have been redeemed!</p>
+            <a href="/code" class="btn btn-primary">See table!</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Create codes</h5>
+            <p class="card-text">Create and insert new codes into the database. You can insert winning and loosing codes!</p>
+            <a href="/addcode" class="btn btn-primary">Add loosing code!</a>
+            <a href="/addwinningcode" class="btn btn-primary">Add winning code!</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem; margin: 15px;">
+        <div class="card-body">
+            <h5 class="card-title">Redeem codes</h5>
+            <p class="card-text">Here you can redeem codes and see if you won or not!</p>
+            <a href="/redeemcode" class="btn btn-primary">Redeem code!</a>
+        </div>
+    </div>
+</div>
+<footer class="footer" style="position: fixed; bottom:0; background-color: #2b2584; width: 100%">
+    <div class="container">
+        <p th:text="${#dates.format(data, 'dd MMM yyyy HH:mm')}" style="color: white; text-align: center" >Date</p>
+    </div>
+</footer>
+</body>
+</html>

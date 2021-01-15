@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add winning codes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/addwinningcode.controller.js" th:src="@{/app/addwinningcode.controller.js}"></script>
+</head>
+<body>
+<div ng-app="app">
+    <header>
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #2b2584">
+            <div class="d-md-flex d-block flex-row mx-md-auto mx-0" >
+                <a class="navbar-brand" style="font-family: Verdana; color: white" href="/">Codes Generator</a>
+            </div>
+        </nav>
+    </header>
+    <div style="margin: 1em">
+        <a href="/" class="btn btn-primary" role="button" aria-pressed="true" style="margin: 0.05em; ">< Go back</a>
+        <h3>Generate new winning codes:</h3>
+        <div>
+            <form class="form-horizontal" ng-controller="postcontroller" name="customerForm" ng-submit="submitForm()">
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="numberOfWinningCodes">Number of winning codes?</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" name="numberOfWinningCodes" value="0" id="numberOfWinningCodes"
+                               placeholder="10" ng-model="numberOfWinningCodes"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="codeLength">The length of a code should be?</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" name="codeLength" value="0" id="codeLength"
+                               placeholder="5" ng-model="codeLength"/>
+                    </div>
+                </div>
+
+                <div class="form-group" style="padding-left: 5em; margin: 1em">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer" style="position: fixed; bottom:0; background-color: #2b2584; width: 100%">
+    <div class="container">
+        <p th:text="${#dates.format(data, 'dd MMM yyyy HH:mm')}" style="color: white; text-align: center" >Date</p>
+    </div>
+</footer>
+</body>
+</html>
